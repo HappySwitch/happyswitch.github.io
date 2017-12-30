@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Pasquale 'sid' Fiorillo. http://www.pasqualefiorillo.it/">
+    <meta property="og:title" content="HappySwitch - Open Source MIDI Amp Controller" />
+    <meta property="og:description" content="With HappySwitch you can control your midiless guitar or bass amp through any MIDI devices. Stop dancing on your pedals and bring your live performance to the next level with HappySwitch!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://happyswitch.it" />
+    <meta property="og:image" content="http://happyswitch.it/resources/happyswitch.png" />
+    <meta property="og:image:alt" content="HappySwitch" />
+
+    <title>HappySwitch - Open Source MIDI Amp Controller</title>
+
+    <link rel="stylesheet" href="./resources/fonts.css" type="text/css">
+    <link rel="stylesheet" href="./resources/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./resources/happyswitch.css" type="text/css">
+    <link rel="icon" type="image/png" href="./resources/favicon.png">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-17561173-9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-17561173-9');
+    </script>
+  </head>
+
+  <body>
+
+    <div class="container"> 
+      <h1>HappySwitch - Open Source MIDI Amp Controller</h1>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-lg-push-8 col-md-push-8 col-sm-push-8" style="padding-top: 30px; text-align: center;">
+          <img class="logo" src="./resources/happyswitch.png" alt="HappySwitch">
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-lg-pull-4 col-md-pull-4 col-sm-pull-4">
+          <h2>HappySwitch gives a MIDI input to your legacy guitar or bass amp</h2>
+          <p>With HappySwitch you can control your midiless guitar or bass amp through any MIDI devices.
+          Stop dancing on your pedals and bring your live performance to the next level with HappySwitch!</p>
+          <p>If you enjoy it, please leave a tip (Bitcoin): 1G26HGi9wrFPSGkDGcw7Y9cbAgZ51t5cwR</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <h3>About</h3>
+          <p>HappySwitch receives the MIDI Program Change messages and applies the stored config to your amp.</p>
+          <p>This prototype was expecially developed to work with MESA/Boogie&reg; Dual &amp; Triple Rectifier&trade;
+          which have a proprietary footswitch interface (7 DIN) but, you can hack it to control every amp with
+          a standard footswitch 1/4" jack interfaces.</p>
+          <!-- <p>This version can controls the Channels 1, 2, 3, SOLO and FX loop bypass of DualRectifier head.</p> -->
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <h3>Project status</h3>
+          <p>This is a fully working Proof Of Concept based on Arduino. You can build it to use it as it is in your 
+          set-up, you can expand it by adding features, you can hack it to work with your specific devices or 
+          you can play with it just for fun.</p>
+          <p></p>
+          <p>All these stuff is released with a <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL v3
+          license</a> so you can feel free to use and modify it.</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <h4>Howto use HappySwitch</h4>
+          <p>Connect the MIDI OUT of your multi-effect/footswitch to the MIDI IN of the HappySwitch and use the
+          other port (7/8 DIN) to connect your MESA amp.</p>
+          <p>Select a patch on your multi-effect and use the switches on HappySwitch to setup your amp. The
+          HappySwitch stores your changes immediately.</p>
+          <p>Do the same steps for all your patch, HappySwitch will remember your setup!</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <hr>
+          <h4>MESA/Boogie Dual &amp; Triple Rectifier 7 DIN interface - BigFoot&trade; emulator</h4>
+          <p>Bigfoot footswitch use the non standard and undocumented interface exposed on 7 pin DIN 270°
+          connector (you can use 8 pin DIN leaving 8th not connected):</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <img class="pinout" src="./resources/DIN8-pinout.gif" />
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <ul class="ul-col-2">
+            <li>PIN 1: GND</li>
+            <li>PIN 2: Vcc 5V</li>
+            <li>PIN 3: V-CH</li>
+            <li>PIN 4: SWB-</li>
+            <li>PIN 5: SWA</li>
+            <li>PIN 6: CH0</li>
+            <li>PIN 7: SWB+</li>
+            <li>PIN 8: N.C.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <p>&nbsp;</p>
+          <ul>
+            <li><b>SWA</b> (pin 5) rules the SOLO switch. This pin is 0V when the SOLO gain is ON, and 5V when the SOLO is OFF</li>
+            <li><b>SWB+</b> and <b>SWB-</b> (pin 7 and 4) are connected together (I don't know how MESA has called this "+" and "-") and it controls the FX switch: 0V FX is OFF, 5V FX is ON</li>
+            <li><b>V-CH</b> is the only one pin that controls the three channels of the Amps. V-CH at 0,7V meaning CH1 (Channel 1) selected, 1,25V meaning CH2, 1,90V meaning CH3</li>
+            <li><b>Vcc</b> (pin 2) provide the power to the BigFoot, so it's is perfect to use to power the arduino too</li>
+          </ul>
+          <h4>MIDI interfaces</h4>
+          <p>MIDI (Musical Instrument Digital Interface) is an asynchronous serial interface used from 1980 to 
+          control the music instruments.<br />
+          It runs at 31250 bps in 8-N-1 format (1 low start bit, 8 data bits, 1 high stop bit) and at phisical
+          layer it uses a pair ow wires cabled into a 5-pin 180° DIN connector (only 4 and 5 pins are used).</p>
+          <p>At the protocol level, MIDI has 16 channel used to spearate "voices" or "instruments". The ability 
+          to multiplex 16 channels onto a single wire makes it possible to control 16 different instruments 
+          or devices.<br />
+          The common type of message are:</p>
+          <ul>
+            <li>Note ON: used to play a note</li>
+            <li>Note OFF: used to stop a note</li>
+            <li>Pitch-bend: used to pitch the note by + or - 2 semitones</li>
+            <li>Aftertouch: indicate a pressure changes ont he note while it is being played</li>
+            <li>Control Change: generated using knobs, slider, footswitches</li>
+            <li>Program Change: instruct an instrument to recall another patch or program</li>
+            <li>SysEx: are defined by the manufacturer and are used to send non-MIDI data such as memory dump, sound samples, ecc</li>
+            <li>RrsEx: is an extension to communicate with other entertainment equipment. See <a href="https://en.wikipedia.org/wiki/MIDI_Show_Control">MIDI Show Control</a></li>
+            <li>System: used to send meta-data like a timecode or keep alive message (Active Sense).</li>
+          </ul>
+
+          <h4>Program Change message</h4>
+          <p>The MIDI footswitches and multi-effects pedal board have the MIDI out interface that sends,
+          among other things, a "Program Change" message when you change your patch. HappySwitch is able
+          to receive these messages and store a different amp configuration for each patch.</p>
+          <p>This type of message has 2 bytes length: 1100nnnn 0ppppppp.<br />
+          The 1st byte was called "Status", the second byte was called "Data".</p>
+          <ul>
+            <li>1100 is 0xC in hexadecimal notation and meaning that the message is "Program Change"</li>
+            <li>nnnn are 4 bits for channel (from 0x0 to 0xF, remember 16 channel?)</li>
+            <li>ppppppp are 7 bit dedicated to patch number (from 0x00 to 0x07F)</li>
+          </ul>
+          <p><a href="https://www.midi.org/specifications/item/table-1-summary-of-midi-message">See here</a> for
+          the other message specifications.</p>
+
+          <h4>HappySwitch internal memory</h4>
+          <p>HappySwitch uses internal Arduino EEPROM to store your amp config.<br />
+          They use the location 0xFF as flag for first boot, and locations from 0x00 and 0x7F to store your configs.
+          When the first boot flag is not set, HappySwitch will initialize all the configs location with known default
+          config witch meaning: Channel 1 selected, SOLO off, FX bypass off.</p>
+          <p>When a Program Change message is received on MIDI IN, HappySwitch read the relative EEPROM location and
+          apply the config stored on it. If you press a button on HappySwitch, they change the config on your amply
+          and store it live.</p>
+
+          <h4>Schematics</h4>
+          <p><img src="./resources/schematics.png"></p>
+
+          <h4>Firmware</h4>
+          <p>You can find the source on GitHub. Feel free to download, fork, or watch it from there.</p>
+          <p class="download"><a href="https://github.com/siddolo/happyswitch" class="btn btn-lg btn-primary">Download from Github</a></p>
+
+          <h4>Credits</h4>
+          <p>The first (unreleased) version of HappySwitch dates back to 2010 and it could only control 2 channels
+          through a standard 1/4" jack. This version is currently used by my friend <a href="https://www.youtube.com/user/Zompetto/">Mario Zeoli</a>. His brother,
+          <a href="https://www.youtube.com/user/alex91093">Alessandro Zeoli</a>, asked me to make it compatible with a MESA/Boogie Dual Rectifier. This prototype will be
+          used by him during <a href="https://www.youtube.com/channel/UCjlJ5Tc0a3lotj923eH7xoQ">La bottega del tempo a vapore</a> live performances.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <img src="./resources/prototype_1.jpg" />
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <img src="./resources/prototype_2.jpg" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <img src="./resources/prototype_3.jpg" />
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <img src="./resources/prototype_4.jpg" />
+        </div>
+      </div>
+    </div>
+
+    <footer class="container">
+      <p><a title="Pasquale 'sid' Fiorillo - 2017" href="http://www.pasqualefiorillo.it/">Pasquale 'sid' Fiorillo - 2017</a> - Bitcoin donation: 1G26HGi9wrFPSGkDGcw7Y9cbAgZ51t5cwR</p>
+      <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=29&p=48&l=ez&f=ifr&linkID=28d1fa31784c04c0170598d41fec4001&t=siddolo-21&tracking_id=siddolo-21" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+    </footer>
+
+  
+
+</body></html>
